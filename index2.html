@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรไฟล์ของฉัน</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <style>
+        /* CSS สำหรับหน้าโปรไฟล์ */
+        :root {
+            --primary-color: #007bff; /* สีหลัก (น้ำเงิน) */
+            --secondary-color: #6c757d; /* สีรอง (เทา) */
+            --accent-color: #28a745; /* สีเน้น (เขียว) */
+            --background-light: #f8f9fa; /* สีพื้นหลังอ่อน */
+            --background-dark: #e9ecef; /* สีพื้นหลังเข้มขึ้นเล็กน้อย */
+            --text-color: #343a40; /* สีข้อความหลัก */
+            --border-color: #dee2e6; /* สีเส้นขอบ */
+            --card-background: #ffffff; /* สีพื้นหลังกล่องข้อมูล */
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* จัดให้อยู่ด้านบนสุด */
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 95%; /* ใช้พื้นที่ 95% ของความกว้างหน้าจอ */
+            margin: 40px auto; /* เพิ่ม margin บนล่าง */
+            padding: 30px;
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* เงาที่ชัดขึ้น */
+            overflow: hidden; /* ป้องกันเนื้อหาล้น */
+        }
+
+        .profile-header {
+            text-align: center;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .profile-picture {
+            width: 180px; /* ขยายขนาดรูป */
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--primary-color); /* ขอบรูปที่หนาขึ้น */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease-in-out; /* เพิ่ม animation */
+        }
+
+        .profile-picture:hover {
+            transform: scale(1.05); /* รูปขยายขึ้นเมื่อเมาส์ชี้ */
+        }
+
+        .profile-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 3em; /* ขนาดชื่อที่ใหญ่ขึ้น */
+            font-weight: 700; /* ตัวหนาขึ้น */
+            letter-spacing: 1px;
+        }
+
+        .profile-header p.tagline {
+            font-size: 1.3em;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            margin-top: 25px;
+            font-size: 1.1em;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.2s ease-in-out;
+            display: inline-flex; /* จัดให้อยู่ในบรรทัดเดียวกันกับไอคอน */
+            align-items: center;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color); /* เปลี่ยนสีเมื่อ hover */
+            text-decoration: none; /* ไม่ต้องมีขีดเส้นใต้ */
+        }
+
+        .contact-info a i {
+            margin-right: 8px; /* ระยะห่างระหว่างไอคอนกับข้อความ */
+            font-size: 1.2em;
+        }
+
+        .section {
+            text-align: left;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+        }
+
+        /* เส้นใต้หัวข้อแบบสวยงาม */
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify; /* จัดข้อความให้เท่ากันทั้งสองฝั่ง */
+            padding: 0 10px; /* เพิ่ม padding ด้านข้างเล็กน้อย */
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            background-color: var(--background-dark); /* สีพื้นหลังของแต่ละรายการ */
+            margin-bottom: 12px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .section ul li:hover {
+            transform: translateY(-5px); /* เลื่อนขึ้นเล็กน้อยเมื่อเมาส์ชี้ */
+        }
+
+        .section ul li strong {
+            color: var(--primary-color);
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .section ul li span.meta {
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section ul li ul { /* สำหรับรายละเอียดงาน */
+            list-style: disc; /* bullet points */
+            margin-top: 10px;
+            margin-left: 20px;
+            color: var(--text-color);
+        }
+
+        .section ul li ul li {
+            background-color: transparent; /* ไม่ต้องมีพื้นหลังซ้ำ */
+            box-shadow: none;
+            padding: 5px 0;
+            margin-bottom: 0;
+        }
+
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px; /* ลดระยะห่าง */
+            margin-top: 20px;
+            padding: 0 10px;
+        }
+
+        .skill-item {
+            background-color: var(--accent-color); /* ใช้สีเน้น */
+            color: white;
+            padding: 10px 18px;
+            border-radius: 25px; /* ทำให้มนขึ้น */
+            font-size: 1em;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            font-weight: 400;
+        }
+
+        .skill-item:hover {
+            background-color: #218838; /* สีเข้มขึ้นเมื่อ hover */
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            color: var(--secondary-color);
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+
+            .profile-header h1 {
+                font-size: 2.2em;
+            }
+
+            .profile-header p.tagline {
+                font-size: 1em;
+            }
+
+            .profile-picture {
+                width: 120px;
+                height: 120px;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
+            .contact-info a {
+                margin: 0 8px;
+                font-size: 0.9em;
+            }
+
+            .skill-item {
+                padding: 8px 15px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="profile-header">
+            <img src="pnt.jpg" alt="รูปโปรไฟล์" class="profile-picture">
+            
+            <h1>[ PHURINAT SOMSRI]</h1>
+            
+            <p class="tagline">[คำโปรย: เช่น นักศึกษา]</p>
+
+            <div class="contact-info">
+                <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i> your.email@example.com</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+        </header>
+
+        <section class="section about-me">
+            <h2>เกี่ยวกับฉัน</h2>
+            <p>
+                [เขียนแนะนำตัวคุณเองอย่างน้อย 2-3 บรรทัด เช่น "ผมเป็นนักพัฒนาซอฟต์แวร์ที่มีประสบการณ์ด้านเว็บแอปพลิเคชัน สนใจเทคโนโลยีใหม่ๆ โดยเฉพาะ AI และ Machine Learning เป้าหมายคือการสร้างสรรค์โซลูชันที่ช่วยแก้ปัญหาและยกระดับคุณภาพชีวิตผู้คน ผมชอบเรียนรู้สิ่งใหม่ๆ และท้าทายตัวเองอยู่เสมอ"]
+            </p>
+        </section>
+
+        <section class="section skills">
+            <h2>ทักษะและความสามารถ</h2>
+            <div class="skills-grid">
+                <span class="skill-item">HTML5</span>
+                <span class="skill-item">CSS3</span>
+                <span class="skill-item">JavaScript (ES6+)</span>
+                <span class="skill-item">Python</span>
+                <span class="skill-item">React.js</span>
+                <span class="skill-item">Node.js</span>
+                <span class="skill-item">SQL</span>
+                <span class="skill-item">Git & GitHub</span>
+                <span class="skill-item">UI/UX Design</span>
+                <span class="skill-item">Figma</span>
+                </div>
+        </section>
+
+        <section class="section experience">
+            <h2>ประสบการณ์</h2>
+            <ul>
+                <li>
+                    <strong>[ตำแหน่งงาน/บทบาท]</strong> <span class="meta">| [ชื่อบริษัท/องค์กร]</span> <br>
+                    <span class="meta">[เดือน ปี ที่เริ่มต้น] - [เดือน ปี ที่สิ้นสุด หรือ ปัจจุบัน]</span><br>
+                    <ul>
+                        <li>[หน้าที่ความรับผิดชอบ หรือ ผลงานเด่น 1]</li>
+                        <li>[หน้าที่ความรับผิดชอบ หรือ ผลงานเด่น 2]</li>
+                        <li>[หน้าที่ความรับผิดชอบ หรือ ผลงานเด่น 3 (ถ้ามี)]</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>[ตำแหน่งงาน/บทบาท]</strong> <span class="meta">| [ชื่อบริษัท/องค์กร]</span> <br>
+                    <span class="meta">[เดือน ปี ที่เริ่มต้น] - [เดือน ปี ที่สิ้นสุด]</span><br>
+                    <ul>
+                        <li>[หน้าที่ความรับผิดชอบ หรือ ผลงานเด่น 1]</li>
+                        <li>[หน้าที่ความรับผิดชอบ หรือ ผลงานเด่น 2]</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section education">
+            <h2>การศึกษา</h2>
+            <ul>
+                <li>
+                    <strong>[ระดับการศึกษา]</strong>, [สาขาวิชา/คณะ]<br>
+                    <span class="meta">[ชื่อสถาบันการศึกษา], [เมือง, ประเทศ]</span><br>
+                    <span class="meta">ปีที่สำเร็จการศึกษา: [ปี พ.ศ./ค.ศ.]</span>
+                </li>
+                </ul>
+        </section>
+
+        <section class="section interests">
+            <h2>ความสนใจและงานอดิเรก</h2>
+            <p>
+                [เขียนความสนใจหรืองานอดิเรกของคุณ เช่น "ในเวลาว่าง ผมชอบอ่านหนังสือเกี่ยวกับเทคโนโลยีและวิทยาศาสตร์ นอกเหนือจากนั้นก็ชอบเดินทางท่องเที่ยวเพื่อเปิดประสบการณ์ใหม่ๆ และถ่ายภาพวิวทิวทัศน์สวยๆ"]
+            </p>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2025 [ชื่อของคุณ]. สงวนลิขสิทธิ์.</p>
+        </footer>
+    </div>
+</body>
+</html>
